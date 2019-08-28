@@ -29,10 +29,15 @@ exports.fileDetail = (req, res, next) => {
 }
 
 
-exports.getFiles = (req, res, next) => {
-    File.find()
-        .then(files => res.json(files))
-        .catch(err => console.log(err));
+exports.getFiles = async (req, res, next) => {
+    try {
+        const files = await File.find();
+        res.status(200).json(files);
+    } catch (err) {
+        console.error(err)
+        next(err);
+
+    }
 }
 
 
@@ -42,25 +47,23 @@ exports.downloadFile = (req, res, next) => {
 }
 
 
-exports.deleteFile = (req, res, next) => {
-    console.log("estoy denttro del delete");
-    File.findByIdAndUpdate(req.params.id, { deleted: true })
-        .then(resp => {
-            try {
+exports.deleteFile = async (req, res, next) => {
+    try {
+        const fileDocument = await File.findByIdAndUpdate(req.params.id, { deleted: true });
+        deleteFile(fileDocument.url);
+        res.status(200).json(fileDocument);
+    } catch (err) {
+        console.error(err)
+        next(err);
+    }
+};
 
-                const rootDirectory = path.dirname(__dirname);
-                const filePath = `${rootDirectory}/public${resp.url}`;
+const deleteFile = (filePath) => {
+    const rootDirectory = path.dirname(__dirname);
+    const fullPath = `${rootDirectory}/public${filePath}`;
 
-                if (fs.existsSync(filePath)) {
-                    fs.unlinkSync(filePath)
-                }
-                //file removed
-                res.json(resp)
-            } catch (err) {
-                console.error(err)
-            }
-        }).
-        catch(err => console.log(err));
-}
-
+    if (fs.existsSync(fullPath)) {
+        fs.unlinkSync(fullPath)
+    }
+};
 

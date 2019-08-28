@@ -1,0 +1,9 @@
+<div *ngFor = "let file of fileList"> 
+  <a [routerLink]="['/', file._id]"><h2> {{file.name}} </h2></a>
+  <div *ngFor="let spec of file.specs">
+    <li> {{spec}}</li>
+  </div>
+  <img id="photo"  alt = "document" [src]="'http://localhost:3000/' + file.url" >
+
+  <button> Delete </button>
+</div>

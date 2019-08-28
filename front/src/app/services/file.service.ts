@@ -13,12 +13,22 @@ export class FileService {
     return this.http.get('http://localhost:3000/file/all')
       .map(res => res.json());
   }
-  sendNewFile(file) {
+  sendNewFile(file : Object) {
     return this.http.post('http://localhost:3000/file/new', file)
       .map(res => res.json());
   }
-  getSingleFile(id) {
+  getSingleFile(id :String) {
     return this.http.get(`http://localhost:3000/file/${id}`)
+    .map(res => res.json());
+  }
+
+  downloadFile (id ){
+    return this.http.get(`http://localhost:3000/file/download/${id}`)
+    .map(res => res.json());
+  }
+
+  deleteFile (id) {
+    return this.http.put(`http://localhost:3000/file/delete/${id}`, id)
     .map(res => res.json());
   }
 }

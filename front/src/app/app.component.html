@@ -3,9 +3,12 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <a [routerLink]="['/files']"><h2>Go to Files</h2></a>
-  <a [routerLink]="['/files/new']"><h2>Upload a new file</h2></a>  
+  <a [routerLink]="['/files']">
+    <h2> Go to Files </h2>
+  </a>
+  <a [routerLink]="['/files/new']">
+    <h2> Upload a new file </h2>
+  </a>
 </div>
 
 <router-outlet></router-outlet>
-

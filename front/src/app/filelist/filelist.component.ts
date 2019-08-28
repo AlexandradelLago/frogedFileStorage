@@ -16,4 +16,22 @@ fileList: Array<Object>;
         this.fileList = respuesta;
       });
   }
+
+  downloadFile(id : String) {
+    // form es un objeto interno de la instancia FileUploader
+ 
+          console.log("archivo bajado");
+
+    };
+
+  deleteFile(id :String) {
+      console.log(id);
+      this.fileS.deleteFile(id)
+      .subscribe((list)=>{
+        //this.fileList = list;
+    })
+
+  }
+  
+   
 }

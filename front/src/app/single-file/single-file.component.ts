@@ -8,8 +8,8 @@ import { FileService } from '../services/file.service';
   styleUrls: ['./single-file.component.css']
 })
 export class SingleFileComponent implements OnInit {
-single: any;
-  constructor(private activateRouter: ActivatedRoute, private fileS: FileService ) { }
+  single: any;
+  constructor(private activateRouter: ActivatedRoute, private fileS: FileService) { }
 
   ngOnInit() {
     this.activateRouter.params.subscribe(params => {

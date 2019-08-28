@@ -7,7 +7,8 @@ const fileSchema = new mongoose.Schema({
     ext:  {type : String},
     type: {type : String}, 
     url: {type : String, default : ''},
-    specs: {type : Array, default : [] }
+    specs: {type : Array, default : [] },
+    deleted : { type : Boolean, default : false}
     },
     {timestamps : true }
   );

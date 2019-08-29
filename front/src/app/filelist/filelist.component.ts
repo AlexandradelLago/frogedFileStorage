@@ -9,7 +9,7 @@ import { FileService } from '../services/file.service';
 export class FilelistComponent implements OnInit {
 
   fileList: Array<Object>;
-  imageURL : String = 'http://localhost:3000/uploads/';
+  imageURL: String = 'http://localhost:3000/uploads/';
   constructor(private fileS: FileService) { }
 
   ngOnInit() {
@@ -19,9 +19,9 @@ export class FilelistComponent implements OnInit {
   downloadFile(url: String) {
     this.fileS.downloadFile(url).
       subscribe(res => {
-        console.log("archivo bajado");
-      })
-  };
+        console.log('archivo bajado');
+      });
+  }
 
   deleteFile(id: String) {
     this.fileS.deleteFile(id).subscribe(() =>this.updateList());

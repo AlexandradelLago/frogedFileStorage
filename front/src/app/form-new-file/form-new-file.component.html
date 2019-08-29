@@ -6,10 +6,8 @@
         <div class="col-sm-12">
           <h4>Upload Section</h4>
           <div id="fileSelector">
-            <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
               <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
-              <button type="submit"> Upload </button>
-            </form>
+              <button type="submit" (click) = "submit()"> Upload </button>
           </div>
         </div>
       </div>

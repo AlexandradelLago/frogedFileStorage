@@ -13,7 +13,7 @@ const mongoose = require("mongoose");
  * @property {string} type - encoding type of the file. example: 7bit
  * @property {boolean} deleted - true for deleted files.
  * @property {timestamps} createdAt - date of creation.
- *  @property {timestamps} updatedAt - date of last update.
+ * @property {timestamps} updatedAt - date of last update.
  */
 const fileSchema = new mongoose.Schema({
   fileName: { type: String },

@@ -10,20 +10,17 @@ import { FileUploader } from 'ng2-file-upload';
 })
 export class FormNewFileComponent implements OnInit {
 
-  // fileUploader llama al back end
+  // url is the path of where the file is going to be uploaded
   uploader: FileUploader = new FileUploader({
-      url : this.fileS.upload
+      url: this.fileS.upload
   });
 
   constructor(private fileS: FileService, private route: Router) { }
 
   ngOnInit() {
   }
-  submitForm(newForm) {
-    // form es un objeto interno de la instancia FileUploader
-    this.uploader.onBuildItemForm = (item, form) => {
-      form.append('name', newForm.value.name);
-    };
+
+  submit() {
     this.uploader.uploadAll();
     this.uploader.onCompleteItem = () => this.route.navigate(['files']);
   }

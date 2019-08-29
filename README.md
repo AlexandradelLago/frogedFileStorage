@@ -28,7 +28,7 @@ ng serve
 ## 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Development server
+### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
@@ -38,7 +38,8 @@ Go to the file.js you want to get the documentation and run in the command line
 
 ```
 jsdoc file.js
-´´´
+```
+
 ## Usage of the app
 
 This is a MEAN app that allows to upload, delete, downloading ^pending^ and see the details.
@@ -62,6 +63,3 @@ Buttons for **delete** and **download** are also available.
 ## Authors
 
 * **Davinia Roca ** 
-
-
-

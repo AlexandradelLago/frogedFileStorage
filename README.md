@@ -14,7 +14,6 @@ Give examples
 
 Download the file go to the back folder and run
 
-
 ```
 npm i
 ```
@@ -40,37 +39,30 @@ ng serve
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
 
-Explain how to run the automated tests for this system
+## Development server
 
-### Break down into end to end tests
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Explain what these tests test and why
+## JSDoc
 
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
+Go to the file.js you want to get the documentation and run in the command line
 
 ```
-Give an example
-```
-
- additional notes about how to deploy this on a live system
+jsdoc file.js
+´´´
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [MongoDB](https://www.mongodb.com/) - Non relational database
+* [ExpressJS](https://expressjs.com) - The web framework used
+* [NodeJs](https://nodejs.org/en/) - Javascript runtime for the back
+* [Angular CLI](https://github.com/angular/angular-cli) - Front end SPA framework
 
 
 ## Authors
 
 * **Davinia Roca ** 
+
 
 

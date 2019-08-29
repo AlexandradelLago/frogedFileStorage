@@ -1,12 +1,13 @@
-var express = require('express');
-var router = express.Router();
-var multer  = require('multer');
-var upload = multer({ dest: './public/uploads/'});
+const express = require('express');
+const router = express.Router();
+const multer  = require('multer');
+const upload = multer({ dest: './public/uploads/'});
 const controller = require("../controllers/files.controller");
 
+/**
+ * API endpoints - routes
+ */
 
-
-// files routes 
 router.get('/all', controller.getFiles);
 router.post('/upload', upload.single("file"),controller.uploadFile);
 router.get('/:id', controller.fileDetail);

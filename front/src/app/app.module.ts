@@ -13,7 +13,7 @@ import { SingleFileComponent } from './single-file/single-file.component';
 
 import { FileService } from './services/file.service';
 
-const routes = [
+const routes : Routes  = [
   {path: 'files', component: FilelistComponent},
   {path: 'files/new', component: FormNewFileComponent},
   {path: 'files/:id', component: SingleFileComponent},

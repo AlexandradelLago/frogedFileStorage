@@ -1,20 +1,13 @@
-<div class="margin-top">
-  <div class="nav-bar">
-    <ul>
-      <li>
-        <a [routerLink]="['/files']">
-          <h2> Go to Files </h2>
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/files/new']">
-          <h2> Upload a new file </h2>
-        </a>
-      </li>
-    </ul>
+<div class="container-fluid">
+    <div class="row header-section">
+       <a class ="right" [routerLink]="['/files']">
+        <span> Go to Files </span>
+      </a>
+      
+      <a class="left" [routerLink]="['/files/new']">
+        <span> Upload a new file </span>
+      </a>
+    </div>
+    <router-outlet></router-outlet>
   </div>
 
-</div>
-
-
-<router-outlet></router-outlet>

@@ -1,10 +1,31 @@
-<div *ngIf="single">
-
-  <h1>{{single.name}}</h1>
-  <div *ngFor="let spec of single.specs">
-    <li>{{spec}}</li>
+<div *ngIf="single" class="container-fluid">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="row card">
+        <div class="col-sm-12">
+          <h4>File Details</h4>
+          <div>
+            <ul>
+              <li>
+                <span>document : {{single.originalName}}</span>
+              </li>
+              <li>
+                <span> Size : {{single.size}} <i>bytes</i></span>
+              </li>
+              <li>
+                <span> Extension : {{single.ext}}</span>
+              </li>
+              <li>
+                <span> type : {{single.type}}</span>
+              </li>
+              <li>
+                <span> Uploaded : {{single.createdAt}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <!-- <img id="photo" [src]="single.url"> -->
-   <div> {{single.originalFileName}} </div>
-
 </div>

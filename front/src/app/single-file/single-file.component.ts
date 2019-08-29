@@ -7,13 +7,13 @@ import { FileService } from '../services/file.service';
   templateUrl: './single-file.component.html',
   styleUrls: ['./single-file.component.css']
 })
+
 export class SingleFileComponent implements OnInit {
   single: any;
   constructor(private activateRouter: ActivatedRoute, private fileS: FileService) { }
 
   ngOnInit() {
     this.activateRouter.params.subscribe(params => {
-      console.log(params['id']);
       this.fileS.getSingleFile(params['id'])
         .subscribe(singleFile => this.single = singleFile);
     });

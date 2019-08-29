@@ -1,15 +1,22 @@
-<div *ngFor="let file of fileList">
-  <div *ngIf="file.deleted == false">
-    <a [routerLink]="['/files', file._id]">
-      <h2> {{file.originalFileName}} </h2>
-    </a>
-    <div *ngFor="let spec of file.specs">
-      <li> {{spec}}</li>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="row card">
+        <h4>List of documents section</h4>
+      </div>
+      <div class="row greyWrapper" *ngFor="let file of fileList">
+        <div *ngIf="file.deleted == false" class="flex">
+            <div><a [routerLink]="['/files', file._id]">{{file.originalName}} </a></div>
+          <div class="col-sm-7 flex">
+            <img id="photo"alt="{{file.ext}}" src="{{imageURL}}{{file.fileName}}">
+            <div class="col-sm-5" style="text-align:center;"><button type="button" class="btn btnDelete btn-primary" (click)="downloadFile(file._id)">Download</button></div>
+            <div class="col-sm-5" style="text-align:center;"><button type="button" class="btn btnDelete btn-primary" (click)="deleteFile(file._id)">Delete</button></div>
+          </div>
+         
+        </div>
+      </div>
     </div>
-    <img id="photo" alt="document" src="{{imageURL}}{{file.fileName}}">
-
-    <button (click)="downloadFile(file._id)"> Download </button>
-    <button (click)="deleteFile(file._id)"> Delete </button>
   </div>
-  
+  <div class="col-md-2"></div>
 </div>

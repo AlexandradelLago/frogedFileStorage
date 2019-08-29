@@ -1,6 +1,7 @@
 {
   "name": "file-storage",
   "version": "0.0.0",
+  "author" : "Davinia Roca",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",

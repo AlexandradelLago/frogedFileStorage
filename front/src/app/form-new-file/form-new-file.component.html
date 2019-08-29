@@ -1,9 +1,19 @@
-<p>
-  form-new-file works!
-</p>
-<form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
-    <p> Documento
-      <input type="file" name="file" ng2FileSelect [uploader]="uploader" />      
-    </p>
-    <button type="submit"> Upload </button>
-  </form>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="row card">
+        <div class="col-sm-12">
+          <h4>Upload Section</h4>
+          <div id="fileSelector">
+            <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+              <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+              <button type="submit"> Upload </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

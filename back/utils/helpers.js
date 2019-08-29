@@ -1,6 +1,6 @@
 const fs = require('fs');
-var path = require('path');
-let File = require('../models/File.js');
+const path = require('path');
+const File = require('../models/File.js');
 
 /** 
  ** createFile - retunr a specific resource of db 
@@ -8,7 +8,6 @@ let File = require('../models/File.js');
  * @param {Object} file information
  * @returns {json} db document created
  **/
-
  exports.createFile = async (fileInfo) => {
     const file = new File({
         fileName: fileInfo.file.filename,
@@ -26,7 +25,6 @@ let File = require('../models/File.js');
  * @param {String} filePath 
  * @returns {void} 
  **/
-
 exports.deleteFile = (filePath) => {
     const fullPath = this.getPath(filePath);
     console.log(fullPath);
@@ -41,7 +39,6 @@ exports.deleteFile = (filePath) => {
  * @param {String} filename as saved in the folder
  * @returns {String} filePath to access the file
  **/
-
 exports.getPath = (fileName) =>{
     const rootDirectory = path.dirname(__dirname);
     return `${rootDirectory}/public/uploads/${fileName}`;

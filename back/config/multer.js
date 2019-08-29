@@ -3,12 +3,11 @@ const uploadURL = './public/uploads/';
 
 
 /** Multer configuration 
- * 
- * Folder where the files are uploaded
- * 
  * @constant  uploadURL = './public/uploads/'
- *
- */
+ * @function 
+ * @params {string} destination - folder where files are store
+ * @params {string} naming of the file, if no specified multer will choose a random string
+ **/
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -19,5 +18,4 @@ const storage = multer.diskStorage({
   }
 });
 
-const upload   = multer({ storage: storage });
-module.exports = upload;
+module.exports =  multer({ storage: storage });

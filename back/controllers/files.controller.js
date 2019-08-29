@@ -5,7 +5,7 @@ const helper = require('../utils/helpers.js');
  * API controllers 
  * uploadFile - creates the document in DB
  * @param {req} file info
- * @returns {json} 
+ * @returns {file} the created document
  */
 // after having uploaded the file with the multer middleware it creates the db document
 exports.uploadFile = async (req, res, next) => {
@@ -23,12 +23,12 @@ exports.uploadFile = async (req, res, next) => {
  * API controllers 
  * fileDetail - retunr a specific resource of db 
  * @param {Object.id} 
- * @returns {json} 
+ * @returns {file} the selected document
  */
-// get a single db file details
+// get a single db file detail
 exports.fileDetail = async (req, res, next) => {
     try {
-        const singleFile = await File.findById(req.params.id)
+        const singleFile = await File.findById(req.params.id, {deleted : false})
         res.status(200).json(singleFile);
     } catch (err) {
         console.error(err)
@@ -39,13 +39,15 @@ exports.fileDetail = async (req, res, next) => {
 /**
  * API controllers 
  * getFails - returns and array of json with the files with deleled == false
- * @param {Object.id} 
- * @returns {Array[json]} 
+ * @param {id} 
+ * @returns {json[]} 
+ * 
  */
 // return all uploaded files that have not been deleted
 exports.getFiles = async (req, res, next) => {
     try {
-        const files = await File.find({ deleted : false });
+        // { deleted : false } --Use this in case if we want to list only the actual uploaded files
+        const files = await File.find();
         res.status(200).json(files);
     } catch (err) {
         console.error(err)
@@ -58,7 +60,7 @@ exports.getFiles = async (req, res, next) => {
  * API controllers 
  * fileDetail - retunr a specific resource of db 
  * @param {id} 
- * @returns {json} 
+ * @returns {file} 
  */
 exports.downloadFile = async (req, res, next) => {
     try {
@@ -73,9 +75,9 @@ exports.downloadFile = async (req, res, next) => {
 
 /**
  * API controllers 
- * deleteFile - retunr a specific resource of db 
- * @param {id} 
- * @returns {json} 
+ * deleteFile - return a specific resource of db 
+ * @param   {id} 
+ * @returns {file} 
  */
 // marks the document of DB related to the file to DELETE and deletes the actual file
 exports.deleteFile = async (req, res, next) => {

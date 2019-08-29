@@ -30,10 +30,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// view engine setup -- commented as we are using angular and no views
-//app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));

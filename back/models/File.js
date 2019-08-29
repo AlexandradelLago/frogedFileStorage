@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
  * This is the model of the collection in the mongoDB
  * @constructor
  * @property {string} fileName - Name of how the document was saved in the folder -Amazon-etc
- * @property {string} originalFileName - Original name of the docuemnt.
+ * @property {string} originalName - Original name of the docuemnt.
  * @property {string} size - Size in bytes 
  * @property {string} ext - mimetype of the file or file extension. Examples : application/pdf , image/jpeg
  * @property {string} type - encoding type of the file. example: 7bit

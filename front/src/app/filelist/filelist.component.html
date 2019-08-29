@@ -9,9 +9,17 @@
         <div *ngIf="file.deleted == false" class="flex">
             <div><a [routerLink]="['/files', file._id]">{{file.originalName}} </a></div>
           <div class="col-sm-7 flex">
-            <img id="photo"alt="{{file.ext}}" src="{{imageURL}}{{file.fileName}}">
+            <img id="photo "alt="{{file.ext}}" src="{{imageURL}}{{file.fileName}}">
             <div class="col-sm-5" style="text-align:center;"><button type="button" class="btn btnDelete btn-primary" (click)="downloadFile(file._id)">Download</button></div>
             <div class="col-sm-5" style="text-align:center;"><button type="button" class="btn btnDelete btn-primary" (click)="deleteFile(file._id)">Delete</button></div>
+          </div>
+        </div>
+        <div *ngIf="file.deleted == true" class="flex">
+            <ul class ="flex-transversal">
+                  <span> DOCUMENT : {{file.originalName}}</span>
+                  <span> DELETED : {{file.updatedAt}}</span>
+          </ul>
+          <div class="col-sm-7 flex">    
           </div>
         </div>
       </div>

@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+#photo{
+    width: 200px;
+    height: 200px;
+}
+
+.card{
+    background-color: white;
+    box-shadow:0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    color:black;
+    margin: 20px;
+    padding: 10px;
+}
+
+.flex {
+    display :flex;
+}
+
+.greyWrapper {
+    margin: 10px;
+    padding: 5px;
+    background-color: rgb(231, 229, 229);
+    border-radius: 5px;
+    line-height:40px;
+}
+
+.btnDelete {
+    margin: 10px;
+    padding: 5px;
+    background-color: rgb(167, 51, 51);
+    border-radius: 5px;
+    line-height:40px;
+    widows: 120px;
+}
+
+a{
+    color: rgb(64, 172, 148);
+    text-decoration: none;
+  }
+ 
+  .right {
+    float :right;
+    padding-right: 10px;
+  }
+ 
+  .left{
+    float :left;
+  }
+   
+ .header-section{
+   height: 80px;
+   line-height: 80px;
+   color: beige;
+   background-color: rgb(46, 43, 43);
+   font-size: 24px;
+   padding-left: 20px;
+ }
+ 

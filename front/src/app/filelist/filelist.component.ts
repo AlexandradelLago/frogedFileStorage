@@ -7,31 +7,28 @@ import { FileService } from '../services/file.service';
   styleUrls: ['./filelist.component.css']
 })
 export class FilelistComponent implements OnInit {
-fileList: Array<Object>;
+
+  fileList: Array<Object>;
+
   constructor(private fileS: FileService) { }
+
   ngOnInit() {
-    this.fileS.getAllFile()
-      .subscribe(respuesta => {
-        console.log(respuesta);
-        this.fileList = respuesta;
-      });
+    this.updateList();
   }
 
-  downloadFile(filename : String) {
-    // form es un objeto interno de la instancia FileUploader
- 
-          console.log("archivo bajado");
+  downloadFile(url: String) {
+    this.fileS.downloadFile(url).
+      subscribe(res => {
+        console.log("archivo bajado");
+      })
+  };
 
-    };
-
-  deleteFile(id :String) {
-      console.log(id);
-      this.fileS.deleteFile(id)
-      .subscribe((list)=>{
-        //this.fileList = list;
-    })
-
+  deleteFile(id: String) {
+    this.fileS.deleteFile(id).subscribe(() =>this.updateList());
   }
-  
-   
+
+  updateList(){
+    this.fileS.getAllFile().subscribe(files => this.fileList = files);
+  }
+
 }

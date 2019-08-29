@@ -28,8 +28,8 @@ export class FileService {
     .map(res => res.json());
   }
 
-  downloadFile (filename:String ):Observable<any>{
-    return this.http.get(`${apiURL}/download/${filename}`)
+  downloadFile (id:String ):Observable<any>{
+    return this.http.get(`${apiURL}/download/${id}`)
     .map(res => res.json());
   }
 

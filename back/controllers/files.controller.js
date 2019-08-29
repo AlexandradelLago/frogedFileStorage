@@ -10,10 +10,9 @@ exports.uploadFile = (req, res, next) => {
             size: req.file.size,
             ext: req.file.mimetype,
             type: req.file.encoding,
-            specs: req.body.specs,
             url: `/uploads/${req.file.filename}`
         })
-        console.log(req.body.specs);
+
         file.save()
             .then(fileCreated => res.json(fileCreated))
             .catch(err => console.log(err));

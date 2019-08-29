@@ -6,9 +6,9 @@ const controller = require("../controllers/files.controller");
 
 // files routes 
 router.get('/all', controller.getFiles);
-router.post('/new', upload.single("file"),controller.uploadFile);
+router.post('/upload', upload.single("file"),controller.uploadFile);
 router.get('/:id', controller.fileDetail);
-router.get( '/:filename', controller.downloadFile);
+router.get( 'download/:filename', controller.downloadFile);
 router.put( '/delete/:id', controller.deleteFile);
 
 

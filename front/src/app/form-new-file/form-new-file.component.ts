@@ -10,13 +10,12 @@ import { FileUploader } from 'ng2-file-upload';
 })
 export class FormNewFileComponent implements OnInit {
 
-  // por defecto hace una llamada post a nuestro back-end
+  // fileUploader llama al back end
   uploader: FileUploader = new FileUploader({
-    url: `http://localhost:3000/file/new`
+      url : this.fileS.upload
   });
 
-
-  constructor(private phoneS: FileService, private route: Router) { }
+  constructor(private fileS: FileService, private route: Router) { }
 
   ngOnInit() {
   }

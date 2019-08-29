@@ -4,31 +4,37 @@ import { Http , Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+import { environment } from '../../environments/environment';
+
+const apiURL : String = `${environment.baseURL}/file`;
+
 @Injectable()
 export class FileService {
-
+  upload : string = `${apiURL}/upload`;
   constructor(private http: Http) { }
 
-  getAllFile() {
-    return this.http.get('http://localhost:3000/file/all')
+  getAllFile():Observable<any> {
+    return this.http.get(`${apiURL}/all`)
       .map(res => res.json());
   }
-  sendNewFile(file : Object) {
-    return this.http.post('http://localhost:3000/file/new', file)
+
+  sendNewFile(file : Object):Observable<any> {
+    return this.http.post(`${apiURL}/upload`, file)
       .map(res => res.json());
   }
-  getSingleFile(id :String) {
-    return this.http.get(`http://localhost:3000/file/${id}`)
+
+  getSingleFile(id : String):Observable<any> {
+    return this.http.get(`${apiURL}/${id}`)
     .map(res => res.json());
   }
 
-  downloadFile (id ){
-    return this.http.get(`http://localhost:3000/file/download/${id}`)
+  downloadFile (filename:String ):Observable<any>{
+    return this.http.get(`${apiURL}/download/${filename}`)
     .map(res => res.json());
   }
 
-  deleteFile (id) {
-    return this.http.put(`http://localhost:3000/file/delete/${id}`, id)
+  deleteFile (id : String):Observable<any> {
+    return this.http.put(`${apiURL}/delete/${id}`, id)
     .map(res => res.json());
   }
 }

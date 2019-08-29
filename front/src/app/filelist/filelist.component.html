@@ -6,7 +6,7 @@
   </div>
   <img id="photo"  alt = "document" [src]="'http://localhost:3000/' + file.url" >
 
-  <button (click) ="downloadFile(file._id)" > Download </button>
+  <button (click) ="downloadFile(file.filename)" > Download </button>
   <button (click) ="deleteFile(file._id)" > Delete </button>
 </div>
 </div>

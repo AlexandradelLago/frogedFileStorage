@@ -17,7 +17,7 @@ fileList: Array<Object>;
       });
   }
 
-  downloadFile(id : String) {
+  downloadFile(filename : String) {
     // form es un objeto interno de la instancia FileUploader
  
           console.log("archivo bajado");

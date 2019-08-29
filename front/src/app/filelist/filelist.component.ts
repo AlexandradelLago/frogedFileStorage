@@ -9,7 +9,7 @@ import { FileService } from '../services/file.service';
 export class FilelistComponent implements OnInit {
 
   fileList: Array<Object>;
-
+  imageURL : String = 'http://localhost:3000/uploads/';
   constructor(private fileS: FileService) { }
 
   ngOnInit() {

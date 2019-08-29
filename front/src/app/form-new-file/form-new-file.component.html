@@ -2,9 +2,6 @@
   form-new-file works!
 </p>
 <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
-    <p> Name
-      <input type="text" name="name" [(ngModel)]="name" />
-    </p>
     <p> Documento
       <input type="file" name="file" ng2FileSelect [uploader]="uploader" />      
     </p>

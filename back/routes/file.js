@@ -4,6 +4,8 @@ var multer  = require('multer');
 var upload = multer({ dest: './public/uploads/'});
 const controller = require("../controllers/files.controller");
 
+
+
 // files routes 
 router.get('/all', controller.getFiles);
 router.post('/upload', upload.single("file"),controller.uploadFile);

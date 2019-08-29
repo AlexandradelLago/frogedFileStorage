@@ -1,16 +1,27 @@
+/** @require
+ * mongoose
+ */
 const mongoose = require("mongoose");
 
-// deleted shows if the file has been deleted from the repository but we still can keep track of transfers
-
+/**
+ * This is the model of the collection in the mongoDB
+ * @constructor
+ * @property {string} fileName - Name of how the document was saved in the folder -Amazon-etc
+ * @property {string} originalFileName - Original name of the docuemnt.
+ * @property {string} size - Size in bytes 
+ * @property {string} ext - mimetype of the file or file extension. Examples : application/pdf , image/jpeg
+ * @property {string} type - encoding type of the file. example: 7bit
+ * @property {boolean} deleted - true for deleted files.
+ * @property {timestamps} createdAt - date of creation.
+ *  @property {timestamps} updatedAt - date of last update.
+ */
 const fileSchema = new mongoose.Schema({
-  filename: { type: String },
-  originalFileName: { type: String },
+  fileName: { type: String },
+  originalName: { type: String },
   size: { type: String },
-  ext: { type: String },
+  ext: { type: String }, 
   type: { type: String },
-  url: { type: String, default: '' },
   deleted: { type: Boolean, default: false },
-  path : {type: String}
 },
   { timestamps: true }
 );

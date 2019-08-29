@@ -1,12 +1,15 @@
-<div *ngFor = "let file of fileList" > 
-  <div *ngIf = "file.deleted == false" > 
-  <a [routerLink]="['/files', file._id]"><h2> {{file.name}} </h2></a>
-  <div *ngFor="let spec of file.specs">
-    <li> {{spec}}</li>
-  </div>
-  <img id="photo"  alt = "document" [src]="'http://localhost:3000/' + file.url" >
+<div *ngFor="let file of fileList">
+  <div *ngIf="file.deleted == false">
+    <a [routerLink]="['/files', file._id]">
+      <h2> {{file.originalFileName}} </h2>
+    </a>
+    <div *ngFor="let spec of file.specs">
+      <li> {{spec}}</li>
+    </div>
+    <img id="photo" alt="document" src="{{imageURL}}{{file.fileName}}">
 
-  <button (click) ="downloadFile(file._id)" > Download </button>
-  <button (click) ="deleteFile(file._id)" > Delete </button>
-</div>
+    <button (click)="downloadFile(file._id)"> Download </button>
+    <button (click)="deleteFile(file._id)"> Delete </button>
+  </div>
+  
 </div>

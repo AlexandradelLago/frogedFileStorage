@@ -17,12 +17,7 @@ export class FileService {
     return this.http.get(`${apiURL}/all`)
       .map(res => res.json());
   }
-
-  sendNewFile(file : Object):Observable<any> {
-    return this.http.post(`${apiURL}/upload`, file)
-      .map(res => res.json());
-  }
-
+  
   getSingleFile(id : String):Observable<any> {
     return this.http.get(`${apiURL}/${id}`)
     .map(res => res.json());

@@ -25,8 +25,6 @@ npm i
 ```
 ng serve
 ```
-## 
-End with an example of getting some data out of the system or using it for a little demo
 
 ### Development server
 
@@ -35,7 +33,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## JSDoc
 
 Go to the file.js you want to get the documentation and run in the command line
-
 ```
 jsdoc file.js
 ```
@@ -61,5 +58,4 @@ Buttons for **delete** and **download** are also available.
 
 
 ## Authors
-
 * **Davinia Roca ** 

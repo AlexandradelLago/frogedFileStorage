@@ -24,8 +24,9 @@ export class FileService {
     .map(res => res.json());
   }
 
-  downloadFile (id: String ): Observable<any>{
-    return this.http.get(`${apiURL}/download/${id}`)
+  downloadFile (filename: String ): Observable<any> {
+    console.log(`${apiURL}/download/${filename}`);
+    return this.http.get(`${apiURL}/download/${filename}`)
     .map(res => res.json());
   }
 

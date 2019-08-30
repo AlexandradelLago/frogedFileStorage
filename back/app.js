@@ -10,6 +10,7 @@ const fileController = require('./routes/file');
 
 // connecting to the database
 const mongoose = require('mongoose');
+mongoose.set('useFindAndModify', false);
 mongoose.connect("mongodb://localhost/file-storage", { useNewUrlParser: true })
   .then(() => {
     console.log("Connected to DB!!!");

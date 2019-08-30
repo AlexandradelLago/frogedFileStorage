@@ -16,15 +16,13 @@ export class FilelistComponent implements OnInit {
     this.updateList();
   }
 
-  downloadFile(url: String) {
-    this.fileS.downloadFile(url).
-      subscribe(res => {
-        console.log('archivo bajado');
-      });
+  downloadFile(fileName: String) {
+    this.fileS.downloadFile(fileName).
+      subscribe(res => console.log('archivo bajado'));
   }
 
   deleteFile(id: String) {
-    this.fileS.deleteFile(id).subscribe(() =>this.updateList());
+    this.fileS.deleteFile(id).subscribe(() => this.updateList());
   }
 
   updateList(){

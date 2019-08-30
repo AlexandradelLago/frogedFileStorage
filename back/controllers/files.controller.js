@@ -77,14 +77,12 @@ exports.uploadFile = async (req, res, next) => {
 /**
  * API controllers 
  * fileDetail - retunr a specific resource of db 
- * @param {id} 
+ * @param {filename} 
  * @returns {file} 
  */
 exports.downloadFile = async (req, res, next) => {
     try {
-        const file = await File.findById(req.params.id);
-        res.download(helper.getPath(file.fileName));
-        res.status(200).json(file);
+       res.download(helper.getPath(req.params.filename));
     } catch (err) {
         console.error(err)
         next(err);

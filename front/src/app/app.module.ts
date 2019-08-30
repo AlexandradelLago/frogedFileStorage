@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule} from '@angular/router';
 
 import { FileSelectDirective } from 'ng2-file-upload';
-import { HttpModule} from '@angular/http';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FilelistComponent } from './filelist/filelist.component';
@@ -29,7 +29,7 @@ const routes : Routes  = [
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes)
   ],

@@ -64,7 +64,6 @@ exports.deleteFile = async (req, res, next) => {
  */
 // after having uploaded the file with the multer middleware it creates the db document
 exports.uploadFile = async (req, res, next) => {
-    console.log("entro aqui desde el fron, como?")
     try {
         const fileCreated = await helper.createFile(req);
         res.status(200).json(fileCreated);
@@ -81,8 +80,9 @@ exports.uploadFile = async (req, res, next) => {
  * @returns {file} 
  */
 exports.downloadFile = async (req, res, next) => {
+    console.log("llegué hasta aqui")
     try {
-       res.download(helper.getPath(req.params.filename));
+        res.sendFile(helper.getPath(req.body.filename));
     } catch (err) {
         console.error(err)
         next(err);

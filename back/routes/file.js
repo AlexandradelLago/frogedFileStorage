@@ -10,7 +10,8 @@ router.get('/all', controller.getFiles);
 router.get('/:id', controller.fileDetail);
 router.put( '/delete/:id', controller.deleteFile);
 router.post('/upload', upload.single("file"),controller.uploadFile);
-router.get( '/download/:filename', controller.downloadFile);
+//router.get( '/download/:filename', controller.downloadFile);
+router.post( '/download', controller.downloadFile);
 
 module.exports = router;
 

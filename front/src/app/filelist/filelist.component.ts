@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FileService } from '../services/file.service';
+import {saveAs as importedSaveAs} from 'file-saver';
 
 @Component({
   selector: 'app-filelist',
@@ -16,9 +17,10 @@ export class FilelistComponent implements OnInit {
     this.updateList();
   }
 
-  downloadFile(fileName: String) {
+  downloadFile(fileName: string) {
     this.fileS.downloadFile(fileName).
-      subscribe(res => console.log('archivo bajado'));
+      subscribe(blob =>  importedSaveAs(blob, fileName)
+    );
   }
 
   deleteFile(id: String) {

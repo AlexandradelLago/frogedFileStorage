@@ -7,13 +7,13 @@ import { FileSelectDirective } from 'ng2-file-upload';
 import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { FilelistComponent } from './filelist/filelist.component';
-import { FormNewFileComponent } from './form-new-file/form-new-file.component';
-import { SingleFileComponent } from './single-file/single-file.component';
+import { FilelistComponent } from './components/filelist/filelist.component';
+import { FormNewFileComponent } from './components/form-new-file/form-new-file.component';
+import { SingleFileComponent } from './components/single-file/single-file.component';
 
 import { FileService } from './services/file.service';
 
-const routes : Routes  = [
+const routes: Routes  = [
   {path: 'files', component: FilelistComponent},
   {path: 'files/new', component: FormNewFileComponent},
   {path: 'files/:id', component: SingleFileComponent},

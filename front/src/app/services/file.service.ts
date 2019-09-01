@@ -13,7 +13,7 @@ export class FileService {
 
   constructor(private http: HttpClient ) { }
 
-  getAllFile():Observable<any> {
+  getAllFile(): Observable<any> {
     return this.http.get(`${apiURL}/all`)
       .map(res => res);
   }
@@ -23,13 +23,15 @@ export class FileService {
     .map(res => res);
   }
 
+
+
   // Usage of blob response type to download files and pasing the filename in the body
   downloadFile(filename) {
     return this.http.post(`${apiURL}/download`, {filename}, {responseType: 'blob'});
 }
 
   deleteFile (id: String): Observable<any> {
-    return this.http.put(`${apiURL}/delete/${id}`, id)
+    return this.http.delete(`${apiURL}/delete/${id}`)
     .map(res => res);
   }
 }

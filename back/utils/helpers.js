@@ -14,8 +14,9 @@ const File = require('../models/File.js');
         originalName: fileInfo.file.originalname,
         size: fileInfo.file.size,
         ext: fileInfo.file.mimetype,
-        type: fileInfo.file.encoding,
-    })
+        type: fileInfo.file.encoding
+    });
+  
     return await file.save();
 }
 
@@ -25,12 +26,15 @@ const File = require('../models/File.js');
  * @param {String} filePath 
  * @returns {void} 
  **/
-exports.deleteFile = (filePath) => {
-    const fullPath = this.getPath(filePath);
-    console.log(fullPath);
+exports.deleteFile = async(params) => {
+    // mark delete in the db
+    const fileDocument = await File.findByIdAndUpdate(params.id, { deleted: true });
+    const fullPath = this.getPath(fileDocument.fileName);
+    // delete the file in the folter
     if (fs.existsSync(fullPath)) {
         fs.unlinkSync(fullPath)
     }
+    return fileDocument;
 }
 
 /** 

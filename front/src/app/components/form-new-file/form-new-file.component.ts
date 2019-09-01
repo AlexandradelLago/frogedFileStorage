@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FileService } from '../services/file.service';
+import { FileService } from '../../services/file.service';
 import { Router } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
 

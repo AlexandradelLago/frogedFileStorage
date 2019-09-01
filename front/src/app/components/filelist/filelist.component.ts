@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FileService } from '../services/file.service';
+import { FileService } from '../../services/file.service';
 import {saveAs as importedSaveAs} from 'file-saver';
 
 @Component({
@@ -27,7 +27,7 @@ export class FilelistComponent implements OnInit {
     this.fileS.deleteFile(id).subscribe(() => this.updateList());
   }
 
-  updateList(){
+  updateList() {
     this.fileS.getAllFile().subscribe(files => this.fileList = files);
   }
 

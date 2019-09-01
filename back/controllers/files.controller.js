@@ -47,8 +47,7 @@ exports.fileDetail = async (req, res, next) => {
 // marks the document of DB related to the file to DELETE and deletes the actual file
 exports.deleteFile = async (req, res, next) => {
     try {
-        const fileDocument = await File.findByIdAndUpdate(req.params.id, { deleted: true });
-        helper.deleteFile(fileDocument.fileName);
+        const fileDocument = await helper.deleteFile(req.params);
         res.status(200).json(fileDocument);
     } catch (err) {
         console.error(err)
@@ -80,7 +79,6 @@ exports.uploadFile = async (req, res, next) => {
  * @returns {file} 
  */
 exports.downloadFile = async (req, res, next) => {
-    console.log("llegué hasta aqui")
     try {
         res.sendFile(helper.getPath(req.body.filename));
     } catch (err) {

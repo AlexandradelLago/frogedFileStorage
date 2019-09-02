@@ -8,7 +8,7 @@ const File = require('../models/File.js');
  * @param {Object} file information
  * @returns {json} db document created
  **/
- exports.createFile = async (fileInfo) => {
+exports.createFile = async (fileInfo) => {
     const file = new File({
         fileName: fileInfo.file.filename,
         originalName: fileInfo.file.originalname,
@@ -16,7 +16,7 @@ const File = require('../models/File.js');
         ext: fileInfo.file.mimetype,
         type: fileInfo.file.encoding
     });
-  
+
     return await file.save();
 }
 
@@ -26,15 +26,19 @@ const File = require('../models/File.js');
  * @param {String} filePath 
  * @returns {void} 
  **/
-exports.deleteFile = async(params) => {
+exports.deleteFile = async (params) => {
     // mark delete in the db
     const fileDocument = await File.findByIdAndUpdate(params.id, { deleted: true });
     const fullPath = this.getPath(fileDocument.fileName);
-    // delete the file in the folter
-    if (fs.existsSync(fullPath)) {
+    try {
+        // physical delete of the file
         fs.unlinkSync(fullPath)
+    } catch (err) {
+        // error in the deletion rollback to previous db state
+        fileDocument = await File.findByIdAndUpdate(params.id, { deleted: false });
+        console.error(err)
     }
-    return fileDocument;
+    return fileDocument;M
 }
 
 /** 
@@ -43,7 +47,7 @@ exports.deleteFile = async(params) => {
  * @param {String} filename as saved in the folder
  * @returns {String} filePath to access the file
  **/
-exports.getPath = (fileName) =>{
+exports.getPath = (fileName) => {
     const rootDirectory = path.dirname(__dirname);
     return `${rootDirectory}/public/uploads/${fileName}`;
 }

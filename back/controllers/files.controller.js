@@ -47,8 +47,8 @@ exports.fileDetail = async (req, res, next) => {
 // marks the document of DB related to the file to DELETE and deletes the actual file
 exports.deleteFile = async (req, res, next) => {
     try {
-        const fileDocument = await helper.deleteFile(req.params);
-        res.status(200).json(fileDocument);
+        const fileDeleted = await helper.deleteFile(req.params);
+        res.status(200).json(fileDeleted)
     } catch (err) {
         console.error(err)
         next(err);

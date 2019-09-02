@@ -14,7 +14,7 @@ export class FileService {
   constructor(private http: HttpClient ) { }
 
   getAllFile(): Observable<any> {
-    return this.http.get(`${apiURL}`)
+    return this.http.get(`${apiURL}/`)
       .map(res => res);
   }
 

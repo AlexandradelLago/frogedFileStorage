@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormNewFileComponent } from './form-new-file.component';
+import { FormNewFileComponent } from './upload-file.component';
 
 describe('FormNewFileComponent', () => {
   let component: FormNewFileComponent;

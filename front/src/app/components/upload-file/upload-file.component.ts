@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
 
 @Component({
-  selector: 'app-form-new-file',
-  templateUrl: './form-new-file.component.html',
-  styleUrls: ['./form-new-file.component.css']
+  selector: 'app-upload-file',
+  templateUrl: './upload-file.component.html',
+  styleUrls: ['./upload-file.component.css']
 })
 export class FormNewFileComponent implements OnInit {
 

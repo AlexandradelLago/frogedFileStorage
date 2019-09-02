@@ -8,7 +8,7 @@ import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FilelistComponent } from './components/filelist/filelist.component';
-import { FormNewFileComponent } from './components/form-new-file/form-new-file.component';
+import { FormNewFileComponent } from './components/upload-file/upload-file.component';
 import { SingleFileComponent } from './components/single-file/single-file.component';
 
 import { FileService } from './services/file.service';

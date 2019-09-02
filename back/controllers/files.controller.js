@@ -48,7 +48,7 @@ exports.fileDetail = async (req, res, next) => {
 exports.deleteFile = async (req, res, next) => {
     try {
         const fileDeleted = await helper.deleteFile(req.params);
-        res.status(200).json(fileDeleted)
+        res.status(200).json(fileDeleted);
     } catch (err) {
         console.error(err)
         next(err);

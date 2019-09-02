@@ -28,7 +28,7 @@ exports.createFile = async (fileInfo) => {
  **/
 exports.deleteFile = async (params) => {
     // mark delete in the db
-    const fileDocument = await File.findByIdAndUpdate(params.id, { deleted: true });
+    let fileDocument = await File.findByIdAndUpdate(params.id, { deleted: true });
     const fullPath = this.getPath(fileDocument.fileName);
     try {
         // physical delete of the file
@@ -38,7 +38,7 @@ exports.deleteFile = async (params) => {
         fileDocument = await File.findByIdAndUpdate(params.id, { deleted: false });
         console.error(err)
     }
-    return fileDocument;M
+    return fileDocument;
 }
 
 /** 
